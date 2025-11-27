@@ -37,7 +37,7 @@ namespace LocalisationAnalyser.Analysers
 
             var xmlDocTrivia = method.Modifiers.First().LeadingTrivia.FirstOrDefault(t => t.IsKind(SyntaxKind.SingleLineDocumentationCommentTrivia));
 
-            context.ReportDiagnostic(Diagnostic.Create(DiagnosticRules.XMLDOC_DOES_NOT_MATCH_TEXT, xmlDocTrivia.GetLocation(), method));
+            context.ReportDiagnostic(Diagnostic.Create(DiagnosticRules.XMLDOC_DOES_NOT_MATCH_TEXT, xmlDocTrivia.GetLocation()));
         }
 
         protected override void AnalyseProperty(SyntaxTreeAnalysisContext context, PropertyDeclarationSyntax property, LocalisationFile localisationFile)
@@ -55,7 +55,7 @@ namespace LocalisationAnalyser.Analysers
 
             var xmlDocTrivia = property.Modifiers.First().LeadingTrivia.FirstOrDefault(t => t.IsKind(SyntaxKind.SingleLineDocumentationCommentTrivia));
 
-            context.ReportDiagnostic(Diagnostic.Create(DiagnosticRules.XMLDOC_DOES_NOT_MATCH_TEXT, xmlDocTrivia.GetLocation(), property));
+            context.ReportDiagnostic(Diagnostic.Create(DiagnosticRules.XMLDOC_DOES_NOT_MATCH_TEXT, xmlDocTrivia.GetLocation()));
         }
     }
 }
