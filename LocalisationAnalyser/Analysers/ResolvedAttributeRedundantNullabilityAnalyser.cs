@@ -56,7 +56,7 @@ namespace LocalisationAnalyser.Analysers
                 return;
 
             foreach (var arg in redundantArgs)
-                context.ReportDiagnostic(Diagnostic.Create(DiagnosticRules.RESOLVED_ATTRIBUTE_NULLABILITY_IS_REDUNDANT, arg.GetLocation(), arg));
+                context.ReportDiagnostic(Diagnostic.Create(DiagnosticRules.RESOLVED_ATTRIBUTE_NULLABILITY_IS_REDUNDANT, arg.GetLocation()));
         }
     }
 }

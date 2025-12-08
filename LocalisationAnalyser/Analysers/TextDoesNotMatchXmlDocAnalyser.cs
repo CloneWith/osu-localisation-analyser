@@ -37,7 +37,7 @@ namespace LocalisationAnalyser.Analysers
             var creationExpression = (ObjectCreationExpressionSyntax)method.ExpressionBody.Expression;
             var textArgument = creationExpression.ArgumentList!.Arguments[1];
 
-            context.ReportDiagnostic(Diagnostic.Create(DiagnosticRules.TEXT_DOES_NOT_MATCH_XMLDOC, textArgument.GetLocation(), method));
+            context.ReportDiagnostic(Diagnostic.Create(DiagnosticRules.TEXT_DOES_NOT_MATCH_XMLDOC, textArgument.GetLocation()));
         }
 
         protected override void AnalyseProperty(SyntaxTreeAnalysisContext context, PropertyDeclarationSyntax property, LocalisationFile localisationFile)
@@ -56,7 +56,7 @@ namespace LocalisationAnalyser.Analysers
             var creationExpression = (ObjectCreationExpressionSyntax)property.ExpressionBody.Expression;
             var textArgument = creationExpression.ArgumentList!.Arguments.Last();
 
-            context.ReportDiagnostic(Diagnostic.Create(DiagnosticRules.TEXT_DOES_NOT_MATCH_XMLDOC, textArgument.GetLocation(), property));
+            context.ReportDiagnostic(Diagnostic.Create(DiagnosticRules.TEXT_DOES_NOT_MATCH_XMLDOC, textArgument.GetLocation()));
         }
     }
 }

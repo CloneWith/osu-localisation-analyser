@@ -54,7 +54,7 @@ namespace LocalisationAnalyser.Analysers
                             return;
                     }
 
-                    context.ReportDiagnostic(Diagnostic.Create(DiagnosticRules.STRING_CAN_BE_LOCALISED, context.Node.GetLocation(), context.Node));
+                    context.ReportDiagnostic(Diagnostic.Create(DiagnosticRules.STRING_CAN_BE_LOCALISED, literal.GetLocation(), context.Node.ToString()));
                     break;
 
                 case InterpolatedStringExpressionSyntax interpolated:
@@ -62,7 +62,7 @@ namespace LocalisationAnalyser.Analysers
                         break;
 
                     if (interpolated.Contents.Any(c => c is InterpolatedStringTextSyntax text && text.TextToken.ValueText.Where(char.IsLetter).Any()))
-                        context.ReportDiagnostic(Diagnostic.Create(DiagnosticRules.STRING_CAN_BE_LOCALISED, context.Node.GetLocation(), context.Node));
+                        context.ReportDiagnostic(Diagnostic.Create(DiagnosticRules.STRING_CAN_BE_LOCALISED, interpolated.GetLocation(), context.Node.ToString()));
                     break;
             }
         }
